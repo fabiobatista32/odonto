@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+		<mapping class="br.com.softodonto.modelo.AnamneseResposta"></mapping>
+		<mapping class="br.com.softodonto.modelo.Dentista"></mapping>
+		<mapping class="br.com.softodonto.modelo.Especialidade"></mapping>
+		<mapping class="br.com.softodonto.modelo.Odontograma"></mapping>
+		<mapping class="br.com.softodonto.modelo.OdontogramaAspecto"></mapping>
+		<mapping class="br.com.softodonto.modelo.OdontogramaDente"></mapping>
+		<mapping class="br.com.softodonto.modelo.Paciente"></mapping>
+		<mapping class="br.com.softodonto.modelo.Perfil"></mapping>
+		<mapping class="br.com.softodonto.modelo.Pessoa"></mapping>
+		<mapping class="br.com.softodonto.modelo.Procedimento"></mapping>
+		<mapping class="br.com.softodonto.modelo.ProcedimentoDente"></mapping>
+		<mapping class="br.com.softodonto.modelo.QuestaoAnamnese"></mapping>
+		<mapping class="br.com.softodonto.modelo.Telefone"></mapping>
+		<mapping class="br.com.softodonto.modelo.Usuario"></mapping>
+	</session-factory>
+
+</hibernate-configuration>
+

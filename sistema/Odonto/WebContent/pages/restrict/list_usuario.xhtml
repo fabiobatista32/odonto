@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      template="/pages/template/template.xhtml"> 
+
+<ui:define name="conteudo">
+	<h:form>
+		<h2>Listagem de usuários</h2><br/>
+
+			<h:messages closable="true" />
+
+			<h:form>
+				<h:commandButton value="Adicionar"
+					actionListener="#{usuarioBean.antesCadastrarUsuario}"
+					styleClass="btn btn-primary" style="margin-left:0px" />
+			</h:form>
+			<br />
+			<br />
+
+			<h:form>
+				<h:dataTable id="dtUsers" value="#{usuarioBean.listUsuario}"
+					var="u" emptyMessage="Sem Usuários">
+					<h:column headerText="NOME"
+						filterBy="#{u.pessoa.nome}" filterMatchMode="contains">
+						<h:outputText value="#{u.pessoa.nome}" />
+					</h:column>
+					<h:column headerText="EMAIL" filterBy="#{u.pessoa.email}"
+						filterMatchMode="contains">
+						<h:outputText value="#{u.pessoa.email}" />
+					</h:column>
+					<h:column headerText="LOGIN">
+						<h:outputText value="#{u.login}"/>
+					</h:column>
+					<h:column headerText="PERFIL">
+						<h:outputText value="#{u.perfil.descricao}" />
+					</h:column>
+					<h:column headerText="Operação">
+						<center>
+							<h:commandButton
+								action="#{userBean.beforeEditarUsuario(u)}"
+								icon="ui-icon-pencil" title="Editar" />
+
+							<h:commandButton
+								action="#{userBean.deletaUsuario(u)}"
+								icon="ui-icon-trash" title="Deletar">
+								<h:confirm header="Remoção de Usuário"
+									message="Você tem certeza que deseja deletar usuário?"
+									icon="ui-icon-alert" />
+							</h:commandButton>
+
+						</center>
+					</h:column>
+
+
+				</h:dataTable>
+			</h:form>
+			<h:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+				<h:form>
+					<h:commandButton value="Sim" type="button"
+						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					<h:commandButton value="Não" type="button"
+						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+				</h:form>
+			</h:confirmDialog>
+		
+	</h:form>
+</ui:define>
+</ui:composition>
