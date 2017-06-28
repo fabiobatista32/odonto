@@ -1,5 +1,7 @@
 package br.com.softodonto.modelo;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 /**
@@ -8,7 +10,9 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="anamnese_resposta")
-public class AnamneseResposta{
+public class AnamneseResposta implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@SequenceGenerator(name="anamnese_resposta_seq", sequenceName = "s_anamnese_resposta")

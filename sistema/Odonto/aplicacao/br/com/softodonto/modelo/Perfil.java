@@ -2,6 +2,7 @@ package br.com.softodonto.modelo;
 
 import javax.persistence.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 
@@ -11,7 +12,9 @@ import java.util.List;
  */
 @Entity
 @Table(name="perfil")
-public class Perfil{
+public class Perfil implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@SequenceGenerator(name="perfil_seq", sequenceName = "s_perfil")
@@ -74,6 +77,20 @@ public class Perfil{
 		usuario.setPerfil(null);
 
 		return usuario;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Perfil other = (Perfil) obj;
+		if (idPerfil != other.idPerfil)
+			return false;
+		return true;
 	}
 
 }

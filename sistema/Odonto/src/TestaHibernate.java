@@ -1,8 +1,7 @@
-import javax.naming.NamingException;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
-import br.com.softodonto.dao.Database;
+import br.com.softodonto.util.HibernateUtil;
 
 public class TestaHibernate {
 	
@@ -10,11 +9,11 @@ public class TestaHibernate {
         Session session = null;
 		try {
 			//session = Database.getInstance().getSession().getSessionFactory().openSession();
-			session = Database.getInstance().getSession();
+			session = HibernateUtil.getSession();
 		} catch (HibernateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (NamingException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

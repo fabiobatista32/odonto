@@ -2,16 +2,14 @@ package br.com.softodonto.modelo;
 
 import javax.persistence.*;
 
+import java.io.Serializable;
 import java.util.List;
 
-
-/**
- * The persistent class for the dentista database table.
- * 
- */
 @Entity
 @Table(name="dentista")
-public class Dentista{
+public class Dentista implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@SequenceGenerator(name="dentista_seq", sequenceName = "s_dentista")

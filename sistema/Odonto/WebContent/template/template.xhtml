@@ -17,13 +17,12 @@
     <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.request.contextPath}/css/style.css"/>
 </h:head>
 <h:body>
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row">
 			<ui:include src="/pages/header.xhtml" />
 		</div>
 		<div class="row">
-			<ui:insert name="conteudo">
-			</ui:insert>
+			<ui:insert name="conteudo"/>
 		</div>
 		<div class="row">
 			<ui:include src="/pages/footer.xhtml" />

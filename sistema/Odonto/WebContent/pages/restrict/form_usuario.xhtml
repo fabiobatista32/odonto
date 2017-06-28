@@ -1,11 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      template="/pages/template/template.xhtml"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-<ui:define name="conteudo">
+<ui:composition template="/template/template.xhtml">
+	<ui:define name="conteudo">
 	<h:form>
 		<h1>CADASTRO DE USUÁRIO</h1>
 		<h:panelGrid>
@@ -31,17 +32,16 @@
 							requiredMessage="Email: campo é obrigatório" />
 						
 						<h:outputLabel value="SENHA: " /> 
-						<h:password id="txtSenha"
-							value="#{usuarioBean.usuario.senha}" match="txtConfSenha"
-							validatorMessage="senha e confirmação de senha são diferentes" size="10"
+						<h:inputSecret value="#{usuarioBean.usuario.senha}" id="txtSenha"
+							match="txtConfSenha" validatorMessage="senha e confirmação de senha são diferentes" size="10"
 							required="true" requiredMessage="Senha: campo é obrigatório"
-							label="Senha"></h:password>
+							label="Senha" />
 						
 						<h:outputLabel value="CONFIRMAR SENHA: " /> 
-						<h:password id="txtConfSenha"
+						<h:inputSecret id="txtConfSenha"
 							size="10" required="true"
 							requiredMessage="Confirmar Senha: campo é obrigatório" label="confSenha">
-						</h:password>
+						</h:inputSecret>
 
 					</h:panelGrid>
 					<h:panelGrid columns="2">
@@ -62,3 +62,4 @@
 	</h:form>
 </ui:define> 
 </ui:composition>
+</html>

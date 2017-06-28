@@ -83,4 +83,20 @@ public class Usuario{
 		this.pessoa = pessoa;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		if (idUsuario != other.idUsuario)
+			return false;
+		return true;
+	}
+	
+	
+
 }

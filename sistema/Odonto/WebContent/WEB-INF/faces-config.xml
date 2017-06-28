@@ -12,5 +12,22 @@
 			<supported-locale>en_US</supported-locale>
 		</locale-config>	
 	</application>
+	
+	<converter>
+		<converter-id>simpleConverter</converter-id>
+		<converter-class>br.gov.ma.seati.converters.SimpleIndexConverter</converter-class>
+	</converter>
+	
+	<converter>
+		<converter-id>converter.CpfConverter</converter-id>
+		<converter-class>br.gov.ma.seati.converters.CpfConverter</converter-class>
+	</converter>
+	
+	<application>
+		<resource-bundle>
+			<base-name>message</base-name>
+			<var>msgs</var>
+		</resource-bundle>
+	</application>
 
 </faces-config>

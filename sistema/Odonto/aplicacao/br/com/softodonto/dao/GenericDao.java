@@ -2,8 +2,6 @@ package br.com.softodonto.dao;
 
 import java.util.Collection;
 
-import javax.naming.NamingException;
-
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -12,15 +10,14 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
+import br.com.softodonto.util.HibernateUtil;
+
 
 public class GenericDao {
 	public static Session session = getSession();
 	
 	public GenericDao() {
-		session.beginTransaction();
-		session.getTransaction().commit();
-		session.getTransaction().rollback();
-		
+
 	}
 	
 	public boolean saveOrUpdate(Object obj) throws Exception {
@@ -34,7 +31,7 @@ public class GenericDao {
 			e.printStackTrace();
 			e.getCause();
 			throw new Exception(e);
-		}//View filter fechara as conexoes de saveOrUpdate		
+		}	
 		return true;
 	}
 	
@@ -49,7 +46,7 @@ public class GenericDao {
 			e.printStackTrace();
 			e.getCause();
 			throw new Exception(e);
-		}//View filter fechara as conexoes de save		
+		}		
 		return true;
 	}
 	
@@ -64,7 +61,7 @@ public class GenericDao {
 			e.printStackTrace();
 			e.getCause();
 			throw new Exception(e);
-		}//View filter fechara as conexoes de Update		
+		}		
 		return true;
 	}
 	
@@ -151,8 +148,8 @@ public class GenericDao {
 
 	public static Session getSession() {		
 		try {
-			return Database.getInstance().getSession();
-		} catch (NamingException e) {
+			return HibernateUtil.getSession();
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -161,8 +158,8 @@ public class GenericDao {
 	
 	public void closeSession(){
 		try {
-			Database.getInstance().closeSession();
-		} catch (NamingException e) {
+			HibernateUtil.closeSession();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}	
